@@ -62,6 +62,10 @@
         $scope.addBook = function (books) {
           books.push($scope.book);
           $scope.book = new Book;
+        };
+
+        this.editBook = function (book) {
+          $scope.book = book;
         }
       },
       controllerAs: 'submitBook'
