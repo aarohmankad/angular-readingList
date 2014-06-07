@@ -1,11 +1,20 @@
 <li class="book row">
+  <div class="col-sm-2">
+    <input type="checkbox" ng-click="changeStatus(book)">
+    <label for="currently reading">Finished</label>
+  </div>
   <aside class="col-sm-3">
     <a ng-href="http://www.amazon.com/gp/product/{{book.ain}}" class="thumbnail"><img ng-src="http://images.amazon.com/images/P/{{book.ain}}.01.ZTZZZZZZ.jpg"
       alt="Cover of {{book.title}}" class="full"></a>
     <h4>{{book.rating}}/5</h4>
   </aside>
-  <div class="col-sm-9">
-    <h3><a ng-href="http://www.amazon.com/gp/product/{{book.ain}}">{{book.title}}</a></h3>
+  <div class="col-sm-7">
+    <div ng-show="!book.currently">
+      <h3><a ng-href="http://www.amazon.com/gp/product/{{book.ain}}">{{book.title}}</a> <button type="button" class="btn btn-info btn-xs" ng-click="submitBook.editBook(book)">Edit</button></h3>
+    </div>
+    <div ng-show="book.currently">
+      <h3><a ng-href="http://www.amazon.com/gp/product/{{book.ain}}"><u>{{book.title}}</u></a> <button type="button" class="btn btn-info btn-xs" ng-click="submitBook.editBook(book)">Edit</button></h3>
+    </div>
     <cite class="text-muted">Written by {{book.authors}}</cite>
     <p>
       {{book.review}}
@@ -14,6 +23,5 @@
     <ul class="list-inline">
       <li> <span class="label label-primary">{{book.genre}}</span> </li>
     </ul>
-    <button type="button" class="btn btn-info btn-xs" ng-click="submitBook.editBook(book)">Edit</button>
   </div>
 </li>
