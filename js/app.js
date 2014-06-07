@@ -3,6 +3,15 @@
   app.controller('readingListController', function(){
   	this.books = [
   	{
+      title: "Siddhartha",
+      authors: "Herman Hesse",
+      ain: "0553208845",
+      review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugit, perspiciatis blanditiis beatae quod praesentium quasi ratione obcaecati dolore neque eligendi sed necessitatibus dolorum quaerat provident impedit asperiores explicabo hic!",
+      rating: 5,
+      genre: "Alternate History",
+      currently: false,
+    },
+    {
   		title: "Harry Potter and the Sorceror's Stone",
   		authors: "J.K. Rowling",
   		ain: "059035342X",
@@ -11,16 +20,29 @@
   		genre: "Fiction",
       currently: false,
   	},
-  	{
-  		title: "Siddhartha",
-  		authors: "Herman Hesse",
-  		ain: "0553208845",
-  		review: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugit, perspiciatis blanditiis beatae quod praesentium quasi ratione obcaecati dolore neque eligendi sed necessitatibus dolorum quaerat provident impedit asperiores explicabo hic!",
-  		rating: 5,
-  		genre: "Alternate History",
-      currently: false,
-  	}
   	];
+
+    this.sortByTitle = function () {
+      this.books.sort(function (a, b) {
+        if (a.title > b.title)
+          return 1;
+        if (a.title < b.title)
+          return -1;
+        // a must be equal to b
+        return 0;
+      });
+    };
+
+    this.sortByRating = function () {
+      this.books.sort(function (a, b) {
+        if (a.rating > b.rating)
+          return 1;
+        if (a.rating < b.rating)
+          return -1;
+        // a must be equal to b
+        return 0;
+      });
+    };
   });
 
   app.directive('bookList', function () {
