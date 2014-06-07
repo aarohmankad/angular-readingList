@@ -43,6 +43,37 @@
         return 0;
       });
     };
+
+    this.filterRead = function () {
+      this.books.sort(function (a) {
+        if (a.currently)
+          return 1;
+        if (!a.currently)
+          return -1;
+        return 0;
+      });
+    };
+
+    this.filterReviewed = function () {
+      this.books.sort(function (a) {
+        if (a.review == null)
+          return 1;
+        if (a.review != null)
+          return -1;
+        return 0;
+      });
+    };
+
+    this.filterGoodReads = function () {
+      this.books.sort(function (a) {
+        if (a.rating >= 3)
+          return 1;
+        if (a.review < 3)
+          return -1;
+        return 0;
+      });
+    };
+
   });
 
   app.directive('bookList', function () {
