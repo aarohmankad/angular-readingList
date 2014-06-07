@@ -1,0 +1,11 @@
+<div class="row">
+  <form ng-submit="addBook(readingList.books)">
+    <input type="text" placeholder="Title" ng-model="book.title" class="form-control">
+    <input type="text" placeholder="Author(s)" ng-model="book.authors" class="form-control">
+    <input type="text" placeholder="AIN number from Amazon (optional)" ng-model="book.ain" class="form-control">
+    <textarea name="Book Review" ng-model="book.review" class="form-control" placeholder="Review"></textarea>
+    <input type="number" placeholder="Rating/5" ng-model="book.rating" class="form-control">
+    <input type="text" placeholder="Genre" ng-model="book.genre" class="form-control">
+    <button type="submit" class="btn btn-primary">Add book</button>
+  </form>
+</div>
